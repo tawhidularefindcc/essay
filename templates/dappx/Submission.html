@@ -1,0 +1,235 @@
+{% extends 'dappx/base.html' %}
+{% block body_block %}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Content-Script-Type" content="text/javascript">
+<meta name="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body { 
+background-color: #F6FAFF;
+font-family:Comic Sans MS;
+}
+.hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+.button {
+  background-color: #6991FF; 
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 40px;
+  cursor: pointer;
+}
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+box-shadow: 1px 1px 1px 1px #aaaaaa;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-751 {
+  float: centre;
+  width: 100%;
+  margin-top: 20px;
+  
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 6px #00000029;
+border-radius: 12px;
+opacity: 1;
+}
+
+.col-752 {
+  float: centre;
+  width: 100%;
+  margin-top: 20px;
+
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 6px #00000029;
+border-radius: 12px;
+opacity: 1;
+}
+
+.new {
+  border-radius: 5px;
+  background-color: #FFE4E4;
+  padding: 20px;
+box-shadow: 1px 1px 1px 1px #aaaaaa;
+
+ 
+}
+
+.button4 {border-radius: 12px;
+height:50px;
+width:200px;
+padding-bottom:10px;
+padding-top:10px;}
+.button5 {border-radius: 12px;
+          background-color: azure;
+          color: grey;}
+.button6 {border-radius: 12px;
+          background-color: azure;
+          color: grey;}
+
+
+
+.t{text-align: center;
+display: inline-block;
+}
+.t1{
+color:orange;
+margin: 20px;
+
+}
+.t2{margin:20px;
+}
+.t3{margin:20px;padding-left:200px; 
+}
+.t4{margin:20px;padding-left:0px;}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+.ic0{position: absolute;
+    top: 0px;
+    right: 10px;}
+.ic{position: absolute;
+    top: 0px;
+    right: 0px;}
+</style>
+</head>
+<body>
+
+<div class="kk">
+<button class="kk button button4" style="font-family:Montserrat;">New Essay</button>
+<button class="kk button button5" style="font-family:Rubik;"><i class="far fa-calendar"></i>    Saved</button>
+
+<button class="kk button button6" style="font-family:Rubik;"><i class="far fa-paper-plane"></i>    Submitted</button>
+
+<script type="text/javascript" text-align="right" style="font-family:Poppins;" >
+document.write ('<p class="ic0"><span id="date">', new Date().toLocaleString(), '<\/span>.<\/p>')
+if (document.getElementById) onload = function () {
+	setInterval ("document.getElementById ('date').firstChild.data = new Date().toLocaleString()", 50)
+}
+</script>
+<img src="/ID728867.png/" class="ic">
+</div>
+<div class="new">
+ <h3 class="t t1" style="font-family:Rubik; color:#FF6B35;"> Hi !</h3>
+ <h4 class="t t2" style="font-family:Rubik; color:#2C2C2C;"> Write your essay and help our community to sustain your language from extinction. </h4>
+ <h4 class="t t3" style="font-family:Rubik;"> Choose Language </h4>
+ <p class="t t4" style="font-family:Rubik; background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 6px #00000029;
+border-radius: 12px;
+opacity: 1;"> <select style="color: #6991FF;opacity: 1; font-family:Rubik;">
+  <option value="Mandari">Mandari</option>
+  <option value="Marwadi">Marwadi</option>
+  <option value="Tulu">Tulu</option>
+  <option value="Tamil">Tamil</option>
+</select> </p>
+</div>
+
+
+
+
+  <form id="form">
+  {% csrf_token %}
+{{ form.as_p }}
+  <div class="row">
+    
+    <div class="col-751">
+      <input type="text" id="fname" name="firstname" placeholder="Write your title here" style="font-family:Rubik;">
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    
+    <div class="col-752">
+      <textarea id="subject" name="subject" placeholder="Write your essay here" style="height:300px; font-family:Rubik;"></textarea>
+	  <div id="countWord"></div>
+    </div>
+  </div>
+  
+
+ 
+<input type="submit" value="Submit" id="countButton"></a>
+  </form>
+  <a href="/"><div class="row" id="countButton">
+    
+	<p>Thank You, your submission number is <span id="displayCount">0</span></p>
+  </div>
+  <script type="text/javascript">
+      var count = 0;
+      var button = document.getElementById("countButton");
+      var display = document.getElementById("displayCount");
+
+      button.onclick = function(){
+        count++;
+        display.innerHTML = count;
+      }
+    </script>
+	    
+	    
+
+ 
+	
+
+ 
+	
+	
+</body>
+</html>
+{% endblock %}

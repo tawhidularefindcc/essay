@@ -1,0 +1,32 @@
+{% extends "dappx/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome !</h1>
+    {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+        <ul>
+            <li>Head on to Register tab above</li>
+            <li>Fill the information and make sure to enter the correct format of email</li>
+            <li>Click on Register button, you will be redirected to submission page</li>
+            <li>Enter the details in submission page and click on submission button</li>
+            <li>Thank you message with submission number will be displayed</li>
+            <li>Now go back to the starting page by clicking on back button on your browser two times or go to this link again- https://enigmatic-brook-01257.herokuapp.com/  </li>
+            <li>Go to the admin tab and enter username - admin  password - youknowme</li>
+            <li>You can find your data in User profile infos and Submission forms in the latest object</li>
+        </ul>  
+    {% else %}
+        <ul>
+            <li>Head on to Register tab above</li>
+            <li>Fill the information and make sure to enter the correct format of email</li>
+            <li>Click on Register button, you will be redirected to submission page</li>
+            <li>Enter the details in submission page and click on submission button</li>
+            <li>Thank you message with submission number will be displayed</li>
+            <li>Now go back to the starting page by clicking on back button on your browser two times or go to this link again- https://enigmatic-brook-01257.herokuapp.com/  </li>
+            <li>Go to the admin tab and enter username - admin  password - youknowme</li>
+            <li>You can find your data in User profile infos and Submission forms in the latest object</li>
+        </ul>    
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
